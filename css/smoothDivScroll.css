@@ -1,0 +1,80 @@
+﻿/* You can alter this CSS in order to give SmoothDivScroll your own look'n'feel */
+
+/* Invisible left hotspot */
+div.scrollingHotSpotLeft, div.scrollingHotSpotRight {
+				
+	width: 31px;
+	height: 107px;
+	display: block;
+	position: absolute;
+	top: 71px;
+	z-index:101;
+	-o-transition: margin 0.3s;
+	 -moz-transition: margin 0.3s;
+	 -webkit-transition: margin 0.3s;
+	 transition: margin 0.3s;
+}
+div.scrollingHotSpotLeft
+{
+	background:url("../images/carousel-prev.png") no-repeat 0 0;
+}
+
+/* Visible left hotspot */
+div.scrollingHotSpotLeftVisible
+{
+	background:url("../images/carousel-prev.png") no-repeat 0 0;
+}
+div.scrollingHotSpotLeftVisible.unact, div.scrollingHotSpotRightVisible.unact {
+	opacity:0.5;
+}
+
+/* Invisible right hotspot */
+div.scrollingHotSpotRight
+{
+	right:0;
+	background:url("../images/carousel-next.png") no-repeat right 0;
+}
+
+/* Visible right hotspot */
+div.scrollingHotSpotRightVisible
+{
+	background:url("../images/carousel-next.png") no-repeat right 0;
+}
+div.scrollingHotSpotRightVisible:hover {
+	background-position: right -107px;
+	margin:0 -5px 0 0px;
+}
+div.scrollingHotSpotLeftVisible:hover {
+	background-position: 0 -107px;
+	margin:0 0px 0 -5px;
+}
+div.scrollingHotSpotLeftVisible.unact{
+	margin:0 0 0 -5px;
+}
+div.scrollingHotSpotRightVisible.unact {
+	margin:0 -5px 0 0;
+}
+/* The scroll wrapper is always the same width and height as the containing element (div).
+   Overflow is hidden because you don't want to show all of the scrollable area.
+*/
+div.scrollWrapper
+{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	padding:0 5px 0 5px;
+	box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-o-sizing: border-box;
+		-ms-box-sizing: border-box;
+}
+
+div.scrollableArea
+{
+	margin:0 auto;
+	position: relative;
+	width: auto;
+	height: 100%;
+}
