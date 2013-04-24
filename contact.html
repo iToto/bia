@@ -140,13 +140,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col w_1-3">
+                        <div id="formContact" class="col w_1-3">
                             <div class="header">Have any questions?</div>
-                            <form class="uniform get-in-touch">
-                                <div class="i-h"><div class="i-bg"><input name="" type="text" class="validate[required]" /></div>Name*</div>
-                                <div class="i-h"><div class="i-bg"><input name="" type="text" class="validate[required]" /></div>E-mail*</div>
-                                <div class="t-h"><textarea name="" id="message1" class="validate[required]"></textarea></div>
-                                <a href="#" class="button" title="Submit"><span><i class="submit"></i>Send message</span></a>
+                            <form method="POST" action="contact.php" class="uniform get-in-touch" id="myForm">
+                                <div class="i-h"><div class="i-bg"><input name="fromName" type="text" class="name" /></div>Name*</div><div id="nameError" style="display:none; color:red;">Please enter your name.</div>
+                                <div class="i-h"><div class="i-bg"><input name="emailFrom" type="text" class="email" /></div>E-mail*</div><div id="emailError" style="display:none; color:red;">Please enter your email.</div>
+                                <div class="t-h"><textarea name="emailBody" id="message1" class="msg"></textarea></div>
+                                <div id="msgError" style="display:none; color:red;">Please enter a message.</div>
+                                <a href="#" id="sendEmail" class="button" title="Submit"><span><i class="submit"></i>Send message</span></a>
                                 <a href="#" class="do-clear">clear form</a>
                             </form>
                         </div>
@@ -156,6 +157,47 @@
                                 <iframe width="294" height="230" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ru/maps?hl=ru&amp;q=transition+hover&amp;ie=UTF8&amp;hq=transition+hover&amp;hnear=&amp;ll=50.928524,-2.13075&amp;spn=1.124619,4.007055&amp;vpsrc=0&amp;output=embed"></iframe>
                             </div>
                         </div> -->
+                        <script>
+                        $('#sendEmail').click(function() {
+                            var doIt =  true;
+
+                            if ($('.name').val() == "") {
+                                $('#nameError').show("fast");
+                                doIt = false;
+                            }
+                            if ($('.email').val() == "") {
+                                $('#emailError').show("fast");
+                                doIt = false;
+                            }
+                            if ($('.msg').val() == "") {
+                                $('#msgError').show("fast");
+                                doIt = false;
+                            }
+
+                            if (doIt) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: "contact.php",
+                                    data: $('#myForm').serialize(),
+                                    dataType: "json"
+                                }).done(function(data){
+                                    if (data.msg) {
+                                        $('#formContact').html(data.msg);
+                                    }
+                                });
+                            }
+                        });
+
+                        $('.name').focus(function(){
+                            $('#nameError').hide("fast");
+                        });
+                        $('.email').focus(function(){
+                            $('#emailError').hide("fast");
+                        });
+                        $('.msg').focus(function(){
+                            $('#msgError').hide("fast");
+                        });
+                        </script>
 
                     </div>
                     <!-- END: Container -->
