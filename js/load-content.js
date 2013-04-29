@@ -137,7 +137,7 @@ DT.fn.loadContent = function() {
 				$("#content-holder").load(ajax_url, function(data){
 					dtInit();
 					DT.fn.showAll();
-					//DT.fn.showContent();
+					DT.fn.showContent();
 					//DT.fn.showBasic();
 				});
 			});
