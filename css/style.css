@@ -448,9 +448,12 @@ h1, h2, h3, h4, h5, h6{
 			  .soc-ico a.rss {
 				  background:url(../images/soc-ico/rss.png) no-repeat 0 0;
 			  }
-			    .soc-ico a.french {
+			  .soc-ico a.french {
 			  	  background:url(../images/soc-ico/french.png) no-repeat 0 0;
 			    }
+			    .soc-ico a.english {
+			    	  background:url(../images/soc-ico/english.png) no-repeat 0 0;
+			      }
 			  .soc-ico a.dribble {
 				  background:url(../images/soc-ico/dribble.png) no-repeat 0 0;
 			  }
