@@ -7,10 +7,10 @@ function initToggle() {
 	return false;
 } else
 	$(".toggle a.question").click(function (event) {
-		event.preventDefault(); 
+		event.preventDefault();
 		$(this).toggleClass("act");
 		$(this).next("div.answer").slideToggle("fast");
-	
+
 	});
 }
 
@@ -20,7 +20,7 @@ function initAccordion() {
 	jQuery('#list1b').accordion({
 		autoheight: false
 	});
-	
+
 	// second simple accordion with special markup
 	jQuery('#navigation').accordion({
 		active: false,
@@ -34,7 +34,7 @@ function initAccordion() {
 	//width for accordion span
 	$('.accord a').each(function(){
 		var w_a = $(this).width();
-		
+
 		if ($.browser.msie && $.browser.version < 8)
 			$('span', this).css({
 				width:w_a-60
@@ -46,19 +46,19 @@ function initAccordion() {
 		}
 	})
 
-		
-		
+
+
 }
-	
+
 /*Tabs*/
-function initTabs() {  
+function initTabs() {
   $("#tab").organicTabs({
 	  "speed": 200
   });
 
 }
-  
-  /*Tooltip*/ 
+
+  /*Tooltip*/
 
  function simple_tooltip(target_items, name){
  $(target_items).each(function(i){
@@ -113,7 +113,7 @@ function initTabs() {
 /*Carousel*/
 function initCarousel() {
 
-	
+
 	$(".carouFredSel_1").each(function(){
 		$(this).carouFredSel({
 			prev: $(this).next(),
@@ -123,6 +123,6 @@ function initCarousel() {
 			scroll: 1
 		});
 	});
-  
+
 
 };
